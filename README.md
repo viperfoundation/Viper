@@ -2,9 +2,7 @@
 
 ![viper logo](/viper-logo.jpg)
 
-**Viper** from **sddao** – a private messenger built on the decentralized transport layer of TON (ADNL protocol). 
-
-**Viper** here represents rapidity, stealth, and flexibility.
+**Viper** – a private messenger built on the decentralized transport layer of TON (ADNL protocol). 
 
 It uses a relay server to forward messages between participants globally.
 
@@ -20,7 +18,7 @@ It uses a relay server to forward messages between participants globally.
 
 **Rolling Closed Beta** – currently in private testing with early adopters.  
 
-Forked from [sddao-v1](https://github.com/systemdesigndao/sddao-v1-builds-public)
+Forked from [v1-chat](https://github.com/viperfoundation/v1-chat-builds-public)
 
 [![systemdesigndao telegram channel][systemdesigndao-telegram-channel-badge]][systemdesigndao-telegram-channel-url]
 
