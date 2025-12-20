@@ -12,9 +12,9 @@ It uses a relay server to forward messages between participants globally.
 
 🔹 Encrypted messages – only you and your peer can read them; the relay does not know the content.
 
-🔹 No registration – just your private/public keys to start.
+🔹 No phone number/email required to register – just your mnemonic phrase or private/public crypto keys to start.
 
-🔹 Simple and fast – command-line interface (Linux, MacOS, Windows), apps (macOS/iOS) lightweight and distraction-free.
+🔹 Simple and fast – apps (macOS/iOS) lightweight and distraction-free.
 
 **Rolling Closed Beta** – currently in private testing with early adopters.  
 
@@ -22,5 +22,5 @@ Forked from [v1-chat](https://github.com/viperfoundation/v1-chat-builds-public)
 
 [![systemdesigndao telegram channel][systemdesigndao-telegram-channel-badge]][systemdesigndao-telegram-channel-url]
 
-[systemdesigndao-telegram-channel-badge]: https://img.shields.io/badge/-systemdesigndao-2CA5E0?style=flat&logo=telegram&logoColor=white
-[systemdesigndao-telegram-channel-url]: https://t.me/systemdesigndao
+[systemdesigndao-telegram-channel-badge]: https://img.shields.io/badge/-viperfoundation-2CA5E0?style=flat&logo=telegram&logoColor=white
+[systemdesigndao-telegram-channel-url]: https://t.me/viperfoundation
