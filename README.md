@@ -32,8 +32,7 @@ Try [Viper Messenger (iOS)](https://apps.apple.com/us/app/viper-messenger/id6754
 
 Explore Viper Docs:
 1. [TON Drop](./ton-drop.md)
-
-Explore 
+ 
 Forked from [v1-chat](https://github.com/viperfoundation/v1-chat-builds-public)
 
 [![systemdesigndao telegram channel][systemdesigndao-telegram-channel-badge]][systemdesigndao-telegram-channel-url]
