@@ -3,8 +3,8 @@
 > Like AirDrop — but distance doesn't have to end the conversation.
 
 TON Drop lets two Viper users who are next to each other find each other and
-start talking straight away. No internet, no phone number, no username, no QR
-code — just open Viper and see who's nearby.
+start talking straight away. No internet, no phone number, no username — just
+open Viper and see who's nearby.
 
 The difference from AirDrop is what happens next. With AirDrop, the moment you
 walk away, it's over. With TON Drop, the people you met nearby stay connected:
@@ -17,8 +17,8 @@ going wherever you both are.
 
 ## How it works
 
-1. **See who's nearby.** Open *People Nearby* and Viper shows the Viper users
-   around you.
+1. **See who's nearby — and how far.** Open *People Nearby* and Viper shows the
+   Viper users around you and roughly how many meters away each of them is.
 2. **Know it's really them.** Every person on the list has proven they own
    their account. Nobody can pretend to be someone else.
 3. **Talk with no internet.** Messages, voice notes, video circles and files go
@@ -37,21 +37,9 @@ going wherever you both are.
 | Works nearby without internet | Yes | Yes |
 | Messages, voice, video notes | No | Yes |
 | Files | Yes | Yes |
+| How far away people are | No | Yes, in meters |
 | After you walk apart | Over | Keeps going over TON |
 | Platforms | Apple only | Open protocol (currently closed source) |
-
----
-
-## The best route, automatically
-
-Viper always picks the best way to deliver a message, with no setup:
-
-- **Direct connection over TON** — the fastest, no server in the middle.
-- **Bluetooth** — when you're close, even with no internet at all.
-- **Encrypted relay** — when nothing else is available.
-
-If one route drops, the next one takes over by itself, and the chat shows which
-route is being used right now.
 
 ---
 
@@ -61,6 +49,8 @@ route is being used right now.
   Viper user is somewhere nearby.
 - **You decide when you're visible.** You can turn off being visible to people
   nearby at any time, and Anon Mode hides you completely.
+- **You decide whether people see how far away you are.** Turn off
+  *Show My Distance* in Settings and your distance is hidden from others.
 - **Everything is end-to-end encrypted** — over Bluetooth, over TON and through
   the relay alike.
 - **No servers involved** when you meet nearby fully offline: nobody learns
@@ -72,6 +62,8 @@ route is being used right now.
 ## Good to know
 
 - Bluetooth range is about the size of a room or a small hall.
+- The distance is approximate — walls, pockets and people in between can make
+  someone look farther away than they are.
 - Large files are faster when you're both online; nearby, they still get
   through, just more slowly.
 - If the connection drops, a file picks up where it left off instead of
