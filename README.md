@@ -18,7 +18,7 @@ It uses a relay server to forward messages between participants globally.
 
 🔹 Built-in TON crypto wallet — non-custodial wallet to receive and send TON-based assets directly inside the messenger.
 
-**Rolling Closed Beta** – currently in private testing with early adopters.  
+Try [Viper Messenger (iOS)](https://apps.apple.com/us/app/viper-messenger/id6754181968).
 
 Forked from [v1-chat](https://github.com/viperfoundation/v1-chat-builds-public)
 
