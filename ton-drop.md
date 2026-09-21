@@ -37,7 +37,7 @@ going wherever you both are.
 | Works nearby without internet | Yes | Yes |
 | Messages, voice, video notes | No | Yes |
 | Files | Yes | Yes |
-| How far away people are | No | Yes, in meters |
+| How far away people are | Yes, in meters | Same as AirDrop but have opportunity to fetch public key from TON Blockchain (TON Domains) |
 | After you walk apart | Over | Keeps going over TON |
 | Platforms | Apple only | Open protocol (currently closed source) |
 
