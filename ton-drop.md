@@ -39,7 +39,7 @@ going wherever you both are.
 | Files | Yes | Yes |
 | How far away people are | Yes, in meters | Same as AirDrop but have opportunity to fetch public key from TON Blockchain (TON Domains) |
 | After you walk apart | Over | Keeps going over TON |
-| Platforms | Apple only | Open protocol (currently closed source) |
+| Platforms | Apple only | Open protocol (TON open sourced, Viper currently closed source) |
 
 ---
 
