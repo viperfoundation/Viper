@@ -69,6 +69,7 @@ going wherever you both are.
 - If the connection drops, a file picks up where it left off instead of
   starting over.
 - Low Power Mode on iPhone can make the Bluetooth connection less stable.
+- Alternative of Bluetooth sharing public key is TON Domains, you can fetch & verify public key of recepient from blockchain
 
 ---
 
