@@ -26,12 +26,15 @@ It uses a relay server to forward messages between participants globally.
 
 🔹 **Viper Pro** – Anon Mode hides you from search, and you can hide your online status.
 
+🔹 **On-device AI** – an AI chat on your Mac that knows Viper and drafts messages, events and notes for you to confirm. Fully local: no cloud, no training.
+
 🔹 **Simple and fast** – lightweight, distraction-free apps for iOS and macOS.
 
 Try [Viper Messenger (iOS)](https://apps.apple.com/us/app/viper-messenger/id6754181968).
 
 Explore Viper Docs:
 1. [TON Drop](./ton-drop.md)
+2. [On-device AI](./on-device-ai.md)
  
 Forked from [v1-chat](https://github.com/viperfoundation/v1-chat-builds-public)
 
