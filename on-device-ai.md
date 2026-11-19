@@ -31,32 +31,74 @@ you can trust the answer or check it in one tap.
 
 ## How it started
 
-Two pieces of work this November set us off:
+This page is about a harness, not about weights. But it started with weights.
 
-- **[Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/weight-space-programming)**
-  (MIT CSAIL, Nov 2026): frontier LLMs can read and edit a neural network's
-  weights much like code. Editing a tiny share of a small model's weights
-  removed what held it back — but it did not add abilities the model lacked.
-- **[BotPsy](https://qvac.tether.io/blog/on-device-ai-agent-botpsy)**
-  (Tether QVAC, Nov 2026): a 0.8B model trained to act through tool calls,
-  small enough to run on a phone.
+**[Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/weight-space-programming)**
+(MIT CSAIL, Nov 2026) shows that frontier LLMs can read and edit a neural
+network's weights much like code. In their example, editing a tiny share of a
+small model's weights stopped it from looping in its reasoning: the model could
+already solve the problems, something in the weights held it back. Their own
+caveat: an edit like this removes what holds a model back; it does not add
+abilities the model lacks.
 
-Both point at the same goal: a model on your own device that knows your app
-and can act in it. We tried both roads for Viper — editing weights and training
-a small model on Viper. Neither taught a model Viper's facts reliably. What
-worked was leaving the model alone and building the program around it.
+That paper started a week of research for Viper. The question: can we program
+a model on the device to know Viper the same way — by changing its weights?
+
+### Step 1: reproduce MIT
+
+We applied MIT's published edit to the same small model (Qwen3.5-0.8B) on our
+own Mac. It reproduced: the edited weights matched MIT's byte for byte, and on
+30 MATH-500 problems the edited model solved 15, the original 3.
+
+### Step 2: try it for Viper — small models only
+
+Then we tried to *add* something with weights, on small models (0.8B–1.7B),
+on one Mac:
+
+- **A weight edit to fix a real bug** (Qwen3.5-0.8B ignoring "Always answer in
+  English"). The edit fixed the bug — and broke other things: answers in
+  Russian, maths, an app-prompt check. By rules written before the edit, a
+  failure.
+- **A weight edit against invented facts** (Qwen3-1.7B, made-up biographies):
+  no significant change.
+- **Training a small model on Viper** (LoRA on
+  [BotPsy](https://qvac.tether.io/blog/on-device-ai-agent-botpsy) 0.8B, Tether
+  QVAC's tool-calling model, on data built from Viper's guides): worse than
+  giving the same model the guides in its prompt.
+
+Zero or negative every time — exactly MIT's caveat. Editing weights can remove
+a fault; it did not put Viper's facts into a model.
+
+One limit of this result: it all ran on a single laptop. We did not train on a
+GPU cluster, with more data and longer runs. That is worth trying later. For
+this work we set one condition: **no training.**
+
+### Step 3: context space, on the final model
+
+The model that ships is different: **gpt-oss-20b, weights exactly as
+released.** None of the experiments above touched it.
+
+Instead of changing what the model *is*, Viper changes what it *sees*: the
+guide pages for the question, the question split into parts, the actions it may
+propose — and then checks its answer in code. The work moved from weight space
+to context space. Weight-space programming is on this page because it is where
+we started and why we stopped: Viper's facts are something the model lacks,
+and lacking is what weight edits do not fix.
 
 ---
 
 ## No training
 
-We did not retrain the model to teach it Viper. We tried — training facts into
-the weights made it worse.
+Viper does not retrain the model to teach it Viper. Viper builds a *harness*
+around an unchanged open model: the knowledge it needs at the moment you ask,
+the actions it may propose, and checks that run before every build ships. Swap
+in a better model tomorrow, and everything Viper taught it stays.
 
-Instead, Viper builds a *harness* around an unchanged open model: the knowledge
-it needs at the moment you ask, the actions it may propose, and checks that run
-before every build ships. Swap in a better model tomorrow, and everything Viper
-taught it stays.
+Or the better model may be Siri. If Siri learns to use apps on its own —
+reading the screen and tapping through them — Viper adapts: its own AI chat may
+no longer be needed, and we would take it out. If Apple opens Siri to
+developers, so apps can use its AI through Siri, Viper will support that and
+bring its guides and actions to it.
 
 ---
 
@@ -74,7 +116,7 @@ taught it stays.
 
 ### What shipped
 
-Viper 1.5.34, now in App Store review, ships gpt-oss-20b on Mac with Viper's
+Viper 1.5.34, now on the App Store, ships gpt-oss-20b on Mac with Viper's
 knowledge: when you ask about Viper, the app gives the model the About Viper
 card and the two in-app guides that match your question, and the answer shows
 those guides as **Sources** (the screenshot above is 1.5.34).
@@ -130,7 +172,7 @@ The same model in three setups, on **fresh questions no version has seen**
   appeared on the App Store in January 2026.** The model was finished before
   Viper existed in public, so everything it knows about Viper has to come from
   the harness.
-- **1.5.34 (harness)** — now in App Store review: the About Viper card and two
+- **1.5.34 (harness)** — now on the App Store: the About Viper card and two
   matching guides.
 - **1.5.35 (harness)** — the patch that fixes what this test found in 1.5.34:
   the changes listed above.
