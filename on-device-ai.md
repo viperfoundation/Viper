@@ -2,8 +2,11 @@
 
 > The model is fixed. The program around it is not.
 
-Viper has an AI chat that runs entirely on your Mac. No cloud. No AI provider
-account. Your questions never leave the device.
+Viper has an AI chat that runs entirely on your device — iPhone, iPad or Mac.
+No cloud. No AI provider account. Your questions never leave the device.
+
+On iPhone and iPad it runs smaller open models. This page is about the Mac:
+gpt-oss-20b, the largest model Viper runs, and the harness around it.
 
 It knows Viper. Ask how keys work, how to move to a new phone, what TON Drop
 does — it answers from Viper's own guides and shows where the answer came from.
@@ -25,7 +28,10 @@ Tap one to open that guide and check the answer yourself.
 with an AI company or a support chat. People ask about keys, delivery marks and
 privacy when something feels wrong — often offline, often in a hurry. Viper
 answers on the device, from Viper's own guides, and points to the source, so
-you can trust the answer or check it in one tap.
+you can check the answer in one tap. Check it: the answers are not always right
+yet — about half are fully correct in our strict test (see
+[the numbers](#the-test-1534-vs-1535)), and making them reliable is the work in
+progress.
 
 ---
 
@@ -102,9 +108,29 @@ bring its guides and actions to it.
 
 ---
 
+## Nothing new, just engineering
+
+None of the building blocks here are new. Giving a model retrieved documents
+at question time (RAG), letting it call tools, and wrapping it in a harness of
+prompts and checks are all well known, and used widely. This is not a new way
+to train LLMs — there is no training in it at all.
+
+What is Viper's own is the engineering for one app, on macOS:
+
+- **The knowledge:** Viper's in-app guides, rewritten for a model, with menu
+  paths taken from the app's code and plain lines for what Viper does not have.
+- **The routing:** a question is split into parts, each part finds its guide
+  page, and the model picks the lines that answer it.
+- **The answer:** the picked guide pages are shown as they are, instead of a
+  retelling.
+- **The actions:** message, event and note, always as a draft you confirm.
+- **The checks in code** and **the blind test** that decides what ships.
+
+---
+
 ## Private by design
 
-- The model, the knowledge and your questions stay on your Mac.
+- The model, the knowledge and your questions stay on your device.
 - No API keys, no usage logs on someone else's server.
 - The AI proposes; you decide. Every action is a draft until you confirm it.
 - You choose what it knows: turn Viper's built-in knowledge on or off, add your
@@ -114,7 +140,11 @@ bring its guides and actions to it.
 
 ## Where it stands
 
-### What shipped
+Three kinds of things below: what **works now** in the App Store build, what
+is **experimental** (measured on a test bench, not in the app yet), and what is
+**planned**.
+
+### Works now: Viper 1.5.34
 
 Viper 1.5.34, now on the App Store, ships gpt-oss-20b on Mac with Viper's
 knowledge: when you ask about Viper, the app gives the model the About Viper
@@ -124,7 +154,16 @@ those guides as **Sources** (the screenshot above is 1.5.34).
 On a small test this worked well: 20 questions about Viper went from 4 right
 (the model alone) to 19 right (the model with the guides).
 
-### Then we scaled the test
+Also in this build: actions as drafts (message someone, create an event, save
+a note — nothing happens until you confirm), turning Viper's knowledge on or
+off, and your own notes as knowledge.
+
+### Experimental: the 1.5.35 harness
+
+Everything from here to *Planned* is test-bench work: measured, not yet in the
+app.
+
+#### We scaled the test
 
 Twenty questions we wrote ourselves is not proof. So we built a large blind
 test:
@@ -144,7 +183,7 @@ questions it was right about a third of the time, and invented something in
 about a third of its answers. Reading the failures showed why: the model often
 had the right guide in front of it and still added things that were not there.
 
-### What we changed
+#### What we changed
 
 Still no training — the model's weights are untouched. Only the program around
 it changed:
@@ -162,7 +201,7 @@ it changed:
    question, a refusal while a matching guide page exists falls back to a normal
    answer, and actions stay drafts.
 
-### The test: 1.5.34 vs 1.5.35
+#### The test: 1.5.34 vs 1.5.35
 
 The same model in three setups, on **fresh questions no version has seen**
 (167 Viper questions, two blind judges):
@@ -203,7 +242,7 @@ the guides where these answers went wrong): 1.5.34 43% correct, 28% invented;
 
 *Draft note: 1.5.35 numbers are from the test bench, not yet from the app build.*
 
-### What it runs on
+#### What it runs on
 
 For now this needs a powerful Mac. Every number on this page was measured on
 one laptop:
@@ -222,12 +261,13 @@ The model itself takes about 12 GB of memory while it runs (13 GB at peak;
 Mac is tight. iPhone is not there yet: the largest iPhones have 12 GB in
 total, less than the model alone needs.
 
-### Next
+### Planned
 
 - Pick the right guide page more often — most remaining misses are a missing or
   wrong page, not a wrong answer.
 - Ship the new harness in the next build, then measure speed on real devices.
 - Publish the test questions and grading rules alongside the results.
 
-Available now on Mac with Apple silicon and 24 GB of memory.
+Viper's AI chat is available now on iPhone, iPad and Mac. gpt-oss-20b, the model
+on this page, needs a Mac with Apple silicon and 24 GB of memory.
 [Viper Messenger on the App Store](https://apps.apple.com/us/app/viper-messenger/id6754181968)
